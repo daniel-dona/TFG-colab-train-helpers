@@ -10,7 +10,7 @@ echo "user = daniel.dona" >> /content/rclone.conf
 echo "pass = hlyjjBPCKDOmynXx6EjpFax8AtFFMBk5aSm3eGVrPlOcLabfgWMe" >> /content/rclone.conf
 
 mkdir /content/persistence
-rclone  --config=/content/rclone.conf copy -v --transfers=10 UPM_drive:/Training/vits_colab_ljs_sync/ /content/persistence/
+rclone  --config=/content/rclone.conf copy -v --transfers=10 UPM_drive:/Training/vits_ljs/ /content/persistence/
 
 mkdir /content/dataset
 rclone  --config=/content/rclone.conf copy -v --transfers=10 UPM_drive:/Datasets/ljs/ /content/dataset/
