@@ -17,6 +17,9 @@ RUN_DIR=$(rclone --config=/content/rclone.conf lsf UPM:/Training/vits_ljs --max-
 CP_FILE=$(rclone --config=/content/rclone.conf lsl UPM:/Training/vits_ljs/ | grep "checkpoint" | sort -rk 2 | head -n "1" | awk '{print $4}')
 BM_FILE=$(rclone --config=/content/rclone.conf lsl UPM:/Training/vits_ljs/ | grep "best_model" | sort -rk 2 | head -n "1" | awk '{print $4}')
 
+echo "Last checkpoint: $CP_FILE"
+echo "Best model: $BM_FILE"
+
 rclone  --config=/content/rclone.conf copy -v --transfers=10 UPM:/Training/vits_ljs/phoneme_cache/ /content/persistence/phoneme_cache/
 
 rclone  --config=/content/rclone.conf copy -v --transfers=10 UPM:/Training/vits_ljs/$CP_FILE /content/persistence/$RUN_DIR/
